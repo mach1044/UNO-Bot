@@ -1,0 +1,36 @@
+Opponent: stronger_heuristic
+Checkpoint games trained: 1
+Completed games: 5000
+Wins: 43
+Losses: 4957
+Truncated attempts: 0
+Win rate: 0.9%
+Date/Time: 2026-09-21 20:58:18
+----------------------------------------
+Opponent: stronger_heuristic
+Checkpoint games trained: 10001
+Completed games: 5000
+Wins: 1706
+Losses: 3294
+Truncated attempts: 0
+Win rate: 34.1%
+Date/Time: 2026-09-21 21:10:32
+----------------------------------------
+Opponent: stronger_heuristic
+Checkpoint games trained: 60001
+Completed games: 5000
+Wins: 1957
+Losses: 3043
+Truncated attempts: 0
+Win rate: 39.1%
+Date/Time: 2026-09-21 21:58:59
+----------------------------------------
+Opponent: stronger_heuristic
+Checkpoint games trained: 110001
+Completed games: 5000
+Wins: 1995
+Losses: 3005
+Truncated attempts: 0
+Win rate: 39.9%
+Date/Time: 2026-09-22 19:23:30
+----------------------------------------

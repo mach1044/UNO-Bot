@@ -39,6 +39,8 @@ class Player:
         self.color_dist[color_index].append(card)
         self.val_dist[value_index].append(card)
 
+        return card
+
     def remove_card(self, card: Card):
         if card.color == "red":
             color_index = 0

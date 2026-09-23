@@ -51,12 +51,45 @@ class GameEngine:
             self.deck.cardsLeft = len(self.deck.cards)
             self.deck.shuffle()
 
-        player.draw_card(self.deck)
+        return player.draw_card(self.deck)
 
     # deals with the legal card moves
-    def legal_moves(self, player: Player, effect: str | None) -> list[list[object]]:
+    def legal_moves(self, player: Player, effect: str | None | Card) -> list[list[object]]:
         if effect is not None:
-            if effect == "skip":
+            if isinstance(effect, Card):
+                drawn_card = effect
+                moves = [["pass"]]
+                additional_moves = []
+
+                # A post-draw move must contain the exact card that was just
+                # drawn. Its first card must still be legal against the
+                # current colour/upcard; every later card has the same value.
+                possible_first_cards = [
+                    card
+                    for card in player.val_dist[drawn_card.value_index]
+                    if (
+                        card.color == self.current_color
+                        or card.value == self.upcard.value
+                        or card.value in ("wild", "wild_draw_four")
+                    )
+                ]
+
+                for first_card in possible_first_cards:
+                    permutations = (
+                        Permute().permute_possible_moves_given_first_card(
+                            player,
+                            first_card,
+                        )
+                    )
+                    additional_moves.extend(
+                        move
+                        for move in permutations
+                        if drawn_card in move
+                    )
+
+                moves.extend(additional_moves)
+                return moves
+            elif effect == "skip":
                 return [["pass"]]
             elif effect == "reverse":
                 return [["pass"]]
@@ -82,7 +115,7 @@ class GameEngine:
                     moves.extend(additional_moves)
         else:
             moves = []
-            moves.append(["draw&pass"])
+            moves.append(["draw_one"])
 
             if self.current_color == "red":
                 color_index = 0
@@ -171,9 +204,8 @@ class GameEngine:
                 self.draw_card(player)
             self.pending_effect = None
             return None
-        elif move[0] == "draw&pass":
-            self.draw_card(player)
-            return None
+        elif move[0] == "draw_one":
+            return self.draw_card(player)
         else:
             for card in move:
                 player.remove_card(card)
@@ -212,33 +244,72 @@ class GameEngine:
 
             return None
 
-    def game(self, player1_bot: Bot, player2_bot: Bot) -> Player:
+    # walk the player through the process of making a move
+    def play_turn(
+        self,
+        move: list[object],
+        chosen_color: str | None,
+        legal_moves: list[list[object]] | None = None,
+    ) -> Player | None:
+        """Apply one turn and return the winner, if the game has ended."""
+        if self.game_over:
+            raise RuntimeError("The game is already over")
+
+        player = self.current_player
+        if legal_moves is None:
+            legal_moves = self.legal_moves(player, self.pending_effect)
+        if move not in legal_moves:
+            raise ValueError("Bot selected an illegal move")
+
+        ifCard = self.execute_move(player, move, chosen_color)
+        if isinstance(ifCard, Card):
+            return ifCard
+
+        if not player.hand:
+            self.winner = player
+            self.game_over = True
+            return player
+
+        self.current_player = (
+            self.player2 if player is self.player1 else self.player1
+        )
+        return None
+
+    def game(
+        self,
+        player1_bot: Bot,
+        player2_bot: Bot,
+        max_turns: int | None = None,
+    ) -> Player | None:
+        if max_turns is not None and max_turns <= 0:
+            raise ValueError("max_turns must be positive or None")
+
         bots = {
             self.player1: player1_bot,
             self.player2: player2_bot,
         }
 
+        turns = 0
         while not self.game_over:
+            if max_turns is not None and turns >= max_turns:
+                return None
+
             player = self.current_player
             bot = bots[player]
             observation = self.get_observation(player)
             legal_moves = self.legal_moves(player, self.pending_effect)
             move, chosen_color = bot.choose_move(observation, legal_moves)
 
-            if move not in legal_moves:
-                raise ValueError("Bot selected an illegal move")
-
-            self.execute_move(player, move, chosen_color)
-
-            # Check the player who just acted before changing turns.
-            if not player.hand:
-                self.winner = player
-                self.game_over = True
+            ifCard = self.play_turn(move, chosen_color, legal_moves)
+            if isinstance(ifCard, Card):
+                observation = self.get_observation(player) # is this observation correct???
+                legal_moves = self.legal_moves(player, ifCard)
+                move, chosen_color = bot.choose_move(observation, legal_moves)
+                self.play_turn(move, chosen_color, legal_moves)
+            elif ifCard is not None:
                 break
 
-            if self.current_player is self.player1:
-                self.current_player = self.player2
-            else:
-                self.current_player = self.player1
+            turns += 1
+
 
         return self.winner
