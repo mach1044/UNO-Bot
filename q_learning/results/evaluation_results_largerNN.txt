@@ -1,0 +1,77 @@
+Opponent: stronger_heuristic
+Checkpoint games trained: 4000
+Completed games: 300
+Wins: 124
+Losses: 176
+Truncated attempts: 0
+Win rate: 41.3%
+Win rate as P1: 42.7%
+Win rate as P2: 40.0%
+Date/Time: 2026-09-24 16:51:05
+----------------------------------------
+Opponent: stronger_heuristic
+Checkpoint games trained: 4000
+Completed games: 1000
+Wins: 379
+Losses: 621
+Truncated attempts: 0
+Win rate: 37.9%
+Win rate as P1: 39.0%
+Win rate as P2: 36.8%
+Date/Time: 2026-09-24 16:51:51
+----------------------------------------
+Opponent: stronger_heuristic
+Checkpoint games trained: 24000
+Completed games: 5000
+Wins: 2339
+Losses: 2661
+Truncated attempts: 0
+Win rate: 46.8%
+Win rate as P1: 48.1%
+Win rate as P2: 45.5%
+Date/Time: 2026-09-24 18:52:15
+----------------------------------------
+Opponent: stronger_heuristic
+Checkpoint games trained: 44000
+Completed games: 5000
+Wins: 3662
+Losses: 1338
+Truncated attempts: 53885
+Win rate: 73.2%
+Win rate as P1: 81.4%
+Win rate as P2: 65.0%
+Date/Time: 2026-09-24 20:03:16
+----------------------------------------
+Opponent: stronger_heuristic
+Checkpoint games trained: 44000
+Completed games: 5000
+Wins: 2423
+Losses: 2577
+Truncated attempts: 0
+Win rate: 48.5%
+Win rate as P1: 50.8%
+Win rate as P2: 46.1%
+Date/Time: 2026-09-24 20:13:39
+----------------------------------------
+Opponent: stronger_heuristic
+Checkpoint games trained: 64000
+Completed games: 5000
+Wins: 2634
+Losses: 2366
+Truncated attempts: 0
+Win rate: 52.7%
+Win rate as P1: 54.8%
+Win rate as P2: 50.6%
+Date/Time: 2026-09-24 20:57:42
+----------------------------------------
+Opponent: stronger_heuristic
+Checkpoint games trained: 64000
+Completed games: 5000
+Wins: 2571
+Losses: 2429
+Truncated attempts: 0
+Win rate: 51.4%
+Win rate as P1: 54.3%
+Win rate as P2: 48.5%
+Date/Time: 2026-09-24 20:59:19
+----------------------------------------

@@ -1,0 +1,88 @@
+Opponent: stronger_heuristic
+Checkpoint games trained: 89300
+Completed games: 1000
+Wins: 516
+Losses: 484
+Truncated attempts: 0
+Win rate: 51.6%
+Win rate as P1: 55.2%
+Win rate as P2: 48.0%
+Date/Time: 2026-09-24 11:49:18
+----------------------------------------
+Opponent: stronger_heuristic
+Checkpoint games trained: 99300
+Completed games: 1000
+Wins: 544
+Losses: 456
+Truncated attempts: 0
+Win rate: 54.4%
+Win rate as P1: 54.2%
+Win rate as P2: 54.6%
+Date/Time: 2026-09-24 11:57:35
+----------------------------------------
+Opponent: stronger_heuristic
+Checkpoint games trained: 99300
+Completed games: 1000
+Wins: 563
+Losses: 437
+Truncated attempts: 0
+Win rate: 56.3%
+Win rate as P1: 60.0%
+Win rate as P2: 52.6%
+Date/Time: 2026-09-24 11:57:57
+----------------------------------------
+Opponent: stronger_heuristic
+Checkpoint games trained: 149300
+Completed games: 5000
+Wins: 2660
+Losses: 2340
+Truncated attempts: 0
+Win rate: 53.2%
+Win rate as P1: 55.8%
+Win rate as P2: 50.6%
+Date/Time: 2026-09-24 15:15:31
+----------------------------------------
+Opponent: stronger_heuristic
+Checkpoint games trained: 149300
+Completed games: 5000
+Wins: 2672
+Losses: 2328
+Truncated attempts: 0
+Win rate: 53.4%
+Win rate as P1: 56.2%
+Win rate as P2: 50.7%
+Date/Time: 2026-09-24 15:29:19
+----------------------------------------
+Opponent: heuristic
+Checkpoint games trained: 149300
+Completed games: 5000
+Wins: 2946
+Losses: 2054
+Truncated attempts: 0
+Win rate: 58.9%
+Win rate as P1: 60.4%
+Win rate as P2: 57.4%
+Date/Time: 2026-09-24 15:31:37
+----------------------------------------
+Opponent: heuristic
+Checkpoint games trained: 169300
+Completed games: 5000
+Wins: 2960
+Losses: 2040
+Truncated attempts: 0
+Win rate: 59.2%
+Win rate as P1: 62.0%
+Win rate as P2: 56.4%
+Date/Time: 2026-09-24 15:58:54
+----------------------------------------
+Opponent: stronger_heuristic
+Checkpoint games trained: 169300
+Completed games: 5000
+Wins: 2645
+Losses: 2355
+Truncated attempts: 0
+Win rate: 52.9%
+Win rate as P1: 55.8%
+Win rate as P2: 50.0%
+Date/Time: 2026-09-24 16:00:01
+----------------------------------------
